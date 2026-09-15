@@ -3,5 +3,6 @@ def check_length(password) :
   
 def check_uppercase(password) :
   return any(char.isupper() for char in password)
-print(check_uppercase("password"))
-print(check_uppercase("Password"))
+
+def check_lowercase(password):
+    return any(char.islower() for char in password)
