@@ -6,3 +6,5 @@ def check_uppercase(password) :
 
 def check_lowercase(password):
     return any(char.islower() for char in password)
+print(check_lowercase("PASSWORD"))
+print(check_lowercase("Password"))
