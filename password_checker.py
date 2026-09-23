@@ -1,18 +1,3 @@
-def check_length(password) : 
-  return len(password) >= 8 
-  
-def check_uppercase(password) :
-  return any(char.isupper() for char in password)
-
-def check_lowercase(password):
-    return any(char.islower() for char in password)
-  
-def check_number(password):
-    return any(char.isdigit() for char in password)
-  
-def check_special_character(password):
-    special_characters = "!@#$%^&*()-_=+[]{};:,.<>/?"
-    return any(char in special_characters for char in password) 
 
 COMMON_PASSWORDS = [
     "password",
@@ -32,10 +17,28 @@ COMMON_PASSWORDS = [
     "abc123"
 ]
 
-def check_common_password(password):
-    return password.lower() not in COMMON_PASSWORDS
 
+def check_length(password):
+    """Return True if password is at least 8 characters long."""
+    return len(password) >= 8
+def check_uppercase(password):
+    """Return True if password contains at least one uppercase letter."""
+    return any(char.isupper() for char in password)
+def check_lowercase(password):
+    """Return True if password contains at least one lowercase letter."""
+    return any(char.islower() for char in password)
+def check_number(password):
+    """Return True if password contains at least one digit."""
+    return any(char.isdigit() for char in password)
+def check_special_character(password):
+    """Return True if password contains at least one special character."""
+    special_characters = "!@#$%^&*()-_=+[]{};:,.<>/?"
+    return any(char in special_characters for char in password)
+def check_common_password(password):
+    """Return True if password is NOT in the list of common passwords."""
+    return password.lower() not in COMMON_PASSWORDS
 def check_password(password):
+    """Run all checks on a password and return (score, rating, checks dict)."""
     checks = {
         "At least 8 characters": check_length(password),
         "Contains uppercase letter": check_uppercase(password),
@@ -44,7 +47,6 @@ def check_password(password):
         "Contains special character": check_special_character(password),
         "Not a common password": check_common_password(password)
     }
-
     score = sum(checks.values())
 
     if score <= 2:
@@ -53,20 +55,25 @@ def check_password(password):
         rating = "Medium"
     else:
         rating = "Strong"
-
     return score, rating, checks
 
-password = input("Enter a password to check: ")
+def main():
+    password = input("Enter a password to check: ")
 
-score, rating, checks = check_password(password)
+    if not password:
+        print("Password cannot be empty.")
+        return
 
-print("\nPassword Strength:", rating)
-print("Score:", score, "/ 6")
+    score, rating, checks = check_password(password)
 
-print("\nChecks:")
+    print("\nPassword Strength:", rating)
+    print("Score:", score, "/ 6")
 
-for check, passed in checks.items():
-    if passed:
-        print("✓", check)
-    else:
-        print("✗", check)
+    print("\nChecks:")
+    for check, passed in checks.items():
+        symbol = "✓" if passed else "✗"
+        print(symbol, check)
+
+if __name__ == "__main__":
+    main()
+
