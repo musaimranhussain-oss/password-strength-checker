@@ -4,6 +4,10 @@
 
   This is a Python password strength checker that evaluates a password against several basic security rules. Scoring a password out of 6 and rates it as Weak, Medium or Strong.
 
+  How to run:
+
+Make sure you have Python 3 installed. 
+
  Security checks:
 
 The program checks whether the password:
@@ -15,11 +19,18 @@ The program checks whether the password:
 - Contains a special character
 - Is not included in a small list of common passwords
 
+Example Output:
+--------------------
+$ python password_checker.py
+False
+True
+------------------------
+
 Why I built it:
 
 I built this project to practice applying security-related skills in Python and to develop my programming skills for future digital  related projects (cybersecurity etc) and degree apprenticeship applications.
 
-The project also helped me practice breaking a problem into smaller functions, testing each part individually and handling unexpected inputs. 
+The project also helped me practice breaking a problem into smaller functions.
 
  How it works:
 
