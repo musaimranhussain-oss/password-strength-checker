@@ -27,15 +27,23 @@ The program checks whether the password:
 
 - Example Output
 
-$ python password_checker.py 
-Enter a password to check: password123 
-Password Strength: Medium Score: 3 / 6 Checks:
-✓ At least 8 characters 
+```text
+$ python password_checker.py
+
+Enter a password to check: password123
+
+Password Strength: Medium
+Score: 3 / 6
+
+Checks:
+✓ At least 8 characters
 ✗ Contains uppercase letter
 ✓ Contains lowercase letter
-✓ Contains a number 
-✗ Contains special character 
+✓ Contains a number
+✗ Contains special character
 ✗ Not a common password
+```
+
 
 - Why I built it 
 
