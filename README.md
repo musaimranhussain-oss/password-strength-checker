@@ -92,12 +92,7 @@ If I developed the project further, I would:
 - Add a graphical user interface
 - Improve input handling for additional edge cases
 
-
-
-
-
-
-
+-------------------------------------------
 
 - Tools used
 
